@@ -1,0 +1,263 @@
+/* ThinkWeb - LightMode by default */
+
+/* TODO: Fix <br><br> needed after <button></button> */
+
+:root {
+  --bg:           #f8f8f8;  /* clean off-white chassis */
+  --surface:      #ffffff;  /* pure panel / palmrest white */
+  --text:         #1a1a1a;  /* near-black for max readability */
+  --text-dim:     #606060;  /* secondary / muted text */
+  --accent:       #e6392d;  /* TrackPoint red — unchanged */
+  --border:       #c0c0c0;  /* light but visible ThinkPad edge */
+  --highlight:    #ff4d4d;  /* brighter red on hover */
+}
+
+* {
+  box-sizing:     border-box;
+  margin:         0;
+  padding:        0;
+}
+
+.dark {
+  /*--accent:     UNCHANGED*/
+  --bg:           #0f0f0f;
+  --border:       #333333;
+  /*--highlight:  UNCHANGED*/
+  --surface:      #1a1a1a;
+  --text:         #d0d0d0;
+  --text-dim:     #909090;
+}
+
+html, body {
+  background:     var(--bg);
+  color:          var(--text);
+  font-family:    "Lucida Console", "Courier New", "DejaVu Sans Mono", monospace;
+  font-size:      16px;
+  line-height:    1.45;
+}
+
+body {
+  margin:         0 auto;
+  max-width:      960px;
+  padding:        2rem 1.5rem;
+}
+
+/* Headers — still boxy and serious */
+h1, h2, h3 {
+  color:          black;
+  font-weight:    normal;
+  letter-spacing: 0.03em;
+  margin-bottom:  0.8em;
+}
+
+.dark h1, .dark h2, .dark h3 {
+  color:          white;
+}
+
+h1 {
+  border-bottom:  3px solid var(--accent);
+  display:        inline-block;
+  font-size:      2.4rem;
+  padding-bottom: 0.4rem;
+}
+
+h2 {
+  border-left:    6px solid var(--accent);
+  font-size:      1.8rem;
+  padding-left:   0.9rem;
+}
+
+/* Links — red TrackPoint style, now on white */
+a {
+  border-bottom:    1px dotted var(--accent);
+  color:            var(--accent);
+  text-decoration:  none;
+  transition:       all 0.12s ease;
+}
+
+a:hover,
+a:focus {
+  color:                var(--highlight);
+  background:           rgba(230, 57, 45, 0.07);
+  border-bottom-style:  solid;
+}
+
+button,
+.button,
+input[type="submit"],
+input[type="button"] {
+  background:       var(--surface);
+  border:           2px solid var(--border);
+  color:            black;
+  cursor:           pointer;
+  font-family:      inherit;
+  font-size:        1rem;
+  padding:          0.6rem 1.2rem;
+  transition:       all 0.13s ease;
+}
+
+button:hover,
+.button:hover,
+input[type="submit"]:hover {
+  background:       var(--accent);
+  border-color:     var(--accent);
+  color:            white;
+}
+
+.btn-red {
+  background:       var(--accent);
+  border-color:     var(--accent);
+  color:            white;
+}
+
+.btn-red:hover {
+  background:       var(--highlight);
+  border-color:     var(--highlight);
+}
+
+/*  White with border  */
+.card,
+section,
+article {
+  background:       var(--surface);
+  border:           1px solid var(--border);
+  border-radius:    0;
+  margin:           1.8rem 0;
+  padding:          1.5rem;
+}
+
+/*  for short code snippets in normal text  */
+code {
+  background:       rgba(128, 128, 128, 0.12);
+  border:           1px solid rgba(160, 160, 160, 0.25);
+  border-radius:    2px;
+  color:            inherit;
+  font-family:      inherit;
+  padding-top:      0.15em;
+  padding-left:     0.35em;
+  padding-right:    0.35em;
+  white-space:      pre-wrap;
+}
+
+/*  for blocks of code separated from all else  */
+pre {
+  background:       #f0f0f0;
+  border:           1px solid #d0d0d0;
+  border-radius:    0;
+  color:            #111;
+  font-family:      inherit;
+  font-size:        0.96em;
+  line-height:      1.38;
+  margin:           1.8rem 0;
+  overflow-x:       auto;
+  padding-top:      1rem;
+  padding-left:     1rem;
+  padding-right:    1rem;
+  padding-bottom:   0;
+}
+
+pre {
+  background:       #f0f0f0;
+  border-color:     #d0d0d0;
+  color:            #111;
+}
+
+.dark pre {
+  background:       #0a0a0a;
+  border-color:     #444;
+  color:            #e0ffe0;        /*  slight  green  tint  */
+  scrollbar-color:  #e0ffe0 black;  /*  green Bar  */
+}
+
+pre code {
+  background:       none;
+  border:           none;
+  color:            inherit;
+  font-size:        inherit;
+  line-height:      inherit;
+  padding:          0;
+}
+
+.dark code {
+  background:       rgba(200, 200, 200, 0.12);
+  border-color:     rgba(180, 180, 180, 0.4);
+}
+
+ul {
+  list-style: none;                 /* remove default bullets */
+  padding-left: 1.8rem;             /* space for our custom marker */
+}
+
+ul li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+/*  Large red Bullets  */
+ul li::before {
+  color: var(--accent);
+  content: "■";
+  font-size: 0.9em;
+  left: 0;
+  line-height: 1.45;
+  position: absolute;
+}
+
+/*  Small red Bullets  */
+li li::before {
+  content: "▪";
+  font-size: 1.1em;
+}
+
+li li {
+  margin-left: -1em;
+}
+
+ol {
+  counter-reset: tp-counter;
+  list-style: none;
+  padding-left: 2.2rem;
+}
+
+ol li {
+  counter-increment: tp-counter;
+  padding-left: 2.2rem;
+  position: relative;
+}
+
+ol li::before {
+  color: var(--accent);
+  content: counter(tp-counter) ".";
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  text-align: right;
+  width: 2rem;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  padding-left: 1.2rem;
+}
+
+.dark ol li::before {
+  color: var(--highlight);  /* Lighten the red to trick the eye into thinking same color as red Bullets in <ul> */
+}
+
+footer {
+  border-top:       1px solid var(--border);
+  color:            var(--text-dim);
+  font-size:        0.9rem;
+  margin-top:       4rem;
+  padding-top:      1.5rem;
+  text-align:       center;
+}
+
+/* Focus — still precise red outline */
+:focus-visible {
+  outline:          2px solid var(--accent);
+  outline-offset:   2px;
+}
+
