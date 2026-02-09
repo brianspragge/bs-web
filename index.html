@@ -11,7 +11,7 @@
 
   <h1>ThinkPad OS</h1>
   <!-- TODO: text-align: right; the button below -->
-  <button onclick="document.documentElement.classList.toggle('dark')">Toggle Dark/Light</button>
+  <button class="pos_r" onclick="document.documentElement.classList.toggle('dark')">Toggle Dark/Light</button>
   <p>Sturdy. Basic. Use forever.</p>
 
   <section class="card">
@@ -24,18 +24,21 @@
     </ul>
   </section>
 
-  <pre>thinkpad ~ % uname -a
-  Linux thinkpad-t480 6.8.0-arch1-1 #1 SMP PREEMPT_DYNAMIC Wed, 03 Apr 2024 02:11:22 +0000 x86_64 GNU/Linux
+  <pre>
+C program:
 
-  thinkpad ~ % neofetch --off
-        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-    ▄▄█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▄▄
-    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+int main()
+{
+  printf("Hello World\n");
 
-  thinkpad ~ % cat /proc/cpuinfo | grep "model name" | head -1
-  model name	: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+  return 0;
+}
   </pre>
+
+  <p>If you want to print into the terminal with C, do the following:
+  <code>printf("Hello World\n")</code></p>
+    <br>
+    <br>
 
   <p>To check battery status on a classic ThinkPad, run:</p>
 

@@ -1,15 +1,16 @@
-/* ThinkWeb - LightMode by default */
+/*  ThinkWeb - LightMode by default  */
 
-/* TODO: Fix <br><br> needed after <button></button> */
+/*  TODO: Fix <br><br>(2 instead of 1) needed after <button></button>  */
 
 :root {
-  --bg:           #f8f8f8;  /* clean off-white chassis */
-  --surface:      #ffffff;  /* pure panel / palmrest white */
-  --text:         #1a1a1a;  /* near-black for max readability */
-  --text-dim:     #606060;  /* secondary / muted text */
-  --accent:       #e6392d;  /* TrackPoint red — unchanged */
-  --border:       #c0c0c0;  /* light but visible ThinkPad edge */
-  --highlight:    #ff4d4d;  /* brighter red on hover */
+  --accent:       #e6392d;  /*  TrackPoint red  */
+  --accent-dark:  #cd250d;
+  --accent-light: #ff4d4d;
+  --bg:           #f8f8f8;  /*  off-white       */
+  --border:       #c0c0c0;  /*  light grey      */
+  --surface:      #ffffff;  /*  white           */
+  --text:         #1a1a1a;  /*  black           */
+  --text-dim:     #606060;  /*  light black     */
 }
 
 * {
@@ -19,10 +20,11 @@
 }
 
 .dark {
-  /*--accent:     UNCHANGED*/
+  /*--accent:       UNCHANGED  */
+  /*--accent-light: UNCHANGED  */
+  /*--accent-dark:  UNCHANGED  */
   --bg:           #0f0f0f;
   --border:       #333333;
-  /*--highlight:  UNCHANGED*/
   --surface:      #1a1a1a;
   --text:         #d0d0d0;
   --text-dim:     #909090;
@@ -42,7 +44,6 @@ body {
   padding:        2rem 1.5rem;
 }
 
-/* Headers — still boxy and serious */
 h1, h2, h3 {
   color:          black;
   font-weight:    normal;
@@ -67,7 +68,7 @@ h2 {
   padding-left:   0.9rem;
 }
 
-/* Links — red TrackPoint style, now on white */
+/*  links are red  */
 a {
   border-bottom:    1px dotted var(--accent);
   color:            var(--accent);
@@ -77,7 +78,7 @@ a {
 
 a:hover,
 a:focus {
-  color:                var(--highlight);
+  color:                var(--accent-light);
   background:           rgba(230, 57, 45, 0.07);
   border-bottom-style:  solid;
 }
@@ -88,7 +89,7 @@ input[type="submit"],
 input[type="button"] {
   background:       var(--surface);
   border:           2px solid var(--border);
-  color:            black;
+  color:            var(--text);
   cursor:           pointer;
   font-family:      inherit;
   font-size:        1rem;
@@ -104,6 +105,7 @@ input[type="submit"]:hover {
   color:            white;
 }
 
+/*  makes btn-red, you guessed it, red!  */
 .btn-red {
   background:       var(--accent);
   border-color:     var(--accent);
@@ -111,11 +113,16 @@ input[type="submit"]:hover {
 }
 
 .btn-red:hover {
-  background:       var(--highlight);
-  border-color:     var(--highlight);
+  background:       var(--accent-light);
+  border-color:     var(--accent-light);
 }
 
-/*  White with border  */
+button.pos_r {
+  position:         relative;
+  left:             47%;
+}
+
+/*  white with border  */
 .card,
 section,
 article {
@@ -184,8 +191,8 @@ pre code {
 }
 
 ul {
-  list-style: none;                 /* remove default bullets */
-  padding-left: 1.8rem;             /* space for our custom marker */
+  list-style: none;      /*  remove default bullets  */
+  padding-left: 1.8rem;
 }
 
 ul li {
@@ -193,7 +200,7 @@ ul li {
   padding-left: 1.4rem;
 }
 
-/*  Large red Bullets  */
+/*  large red Bullet  */
 ul li::before {
   color: var(--accent);
   content: "■";
@@ -203,7 +210,7 @@ ul li::before {
   position: absolute;
 }
 
-/*  Small red Bullets  */
+/*  small red Bullet  */
 li li::before {
   content: "▪";
   font-size: 1.1em;
@@ -214,20 +221,20 @@ li li {
 }
 
 ol {
-  counter-reset: tp-counter;
+  counter-reset: num;
   list-style: none;
   padding-left: 2.2rem;
 }
 
 ol li {
-  counter-increment: tp-counter;
+  counter-increment: num;
   padding-left: 2.2rem;
   position: relative;
 }
 
 ol li::before {
-  color: var(--accent);
-  content: counter(tp-counter) ".";
+  color: var(--accent-dark);  /*  darken the red to trick the eye into thinking same color as red Bullet in <ul>  */
+  content: counter(num) ".";
   font-weight: bold;
   left: 0;
   position: absolute;
@@ -243,7 +250,7 @@ ol ol {
 }
 
 .dark ol li::before {
-  color: var(--highlight);  /* Lighten the red to trick the eye into thinking same color as red Bullets in <ul> */
+  color: var(--accent-light);  /*  lighten the red to trick the eye into thinking same color as red Bullet in <ul>  */
 }
 
 footer {
@@ -255,7 +262,6 @@ footer {
   text-align:       center;
 }
 
-/* Focus — still precise red outline */
 :focus-visible {
   outline:          2px solid var(--accent);
   outline-offset:   2px;
