@@ -1,151 +1,204 @@
+<!-- TODO: Replace superscripts with something that makes more sense -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 
-  <title>ThinkPad OS — Built to Last</title>
+  <title>Brian Spragge - Story and Programming Links</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>ThinkPad OS</h1>
-  <!-- TODO: text-align: right; the button below -->
-  <button class="pos_r" onclick="document.documentElement.classList.toggle('dark')">Toggle Dark/Light</button>
-  <p>Sturdy. Basic. Use forever.</p>
+  <h1>Brian Spragge</h1>
+  <p style="float:right;">
+    <button onclick="document.documentElement.classList.toggle('dark')">Toggle Dark/Light</button>
+  </p>
+  <p>Veni, Vidi, Programavi</p>
 
+<!-- MY STORY -->
   <section class="card">
-    <h2>Features</h2>
+    <h2>A Story</h2>
+    <p>
+      This was at the very beginning of my journey to code. I tried coding when I was about 10. My older brother showed
+      me a program called Alice. I spent a few days on it. I was about 22 and tried coding again, with Java. That was
+      when Ai started to get popular but before the really big boom with Chatgpt, then Grok, then Claude. Years before 
+      those got a ton of traction. I absolutely failed with Java, and really didn't like it. Years later, when I was 27,
+      I got really sick and had to stay home from work for about a year. I picked up a book called Python Crash Course
+      3rd Edition, and went through the entire thing in a couple months. I loved it. I couldn't even play video games,
+      it was so engaging. I created websites, games, graphs, all of it and more. It was while I was going through the
+      book that I was having trouble remembering which built-in Python functions did what, and so decided to make my own
+      program to help me. I never really finished it, but it helped a lot. SO, I started learning in August of 2024, and
+      it is currently April 3rd of 2025. I am creating a file organizing app, and studying a book called Data Structures
+      & Algorithms in Python. It is very good, but I am having to relearn old algebra in order to finish it. That's it
+      for that. I just wanted to make sure I journaled the beginning of what is hopefully a new career. Thanks for
+      reading, and keep your head low, and your eyes high.
+    </p>
+    <br>
+    <div>P.S. it is currently 02/13/2026 23:46:12 and I have a lot more of the story to tell.</div>
+  </section>
+
+<!-- JOKES -->
+  <section>
+    <h2>Jokes</h2>
+      <ol>
+        <li>Debugging is slower than running with scissors, and less fun<a href="https://github.com/EpicGamesExt/raddebugger" target="_blank;"><sup>1</sup></a></li>
+        <li>Every great project begins with a TODO and ends with... I can't remember</li>
+        <li>Once solved a bug by eating it. Try <a href="https://www.google.com/search?q=n%C6%B0%E1%BB%9Bc+m%E1%BA%AFm">"Nuoc mam"</a></li>
+        <li>“Code is like my son. Sometimes it smells funny.” -Your Mom</li>
+      </ol>
+  </section>
+
+<!-- PROJECTS -->
+  <section class="card">
+  <p style="float:right;">
+    <img src="https://camo.githubusercontent.com/41a65e8e8b156dcaa08394846fc489ca0df44b0d121c3f04e642c1be5846d3c9/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f476a4f6b704b33613041416f78646c3f666f726d61743d6a7067266e616d653d6c61726765" class="box-shadow;" style="border:3px outset var(--accent);width:200px;">
+  </p>
+    <h2>Projects</h2>
     <ul>
-      <li>Black magnesium chassis aesthetic <code>Code here</code> more text</li>
-      <li>Red TrackPoint® navigation <code>$bash /! y is q great:</code> more text</li>
-      <li>Zero rounded corners</li>
-      <li>Monospace by default</li>
+      <li>First Ever Python Program: <a href="https://github.com/brianspragge/FirstProgramEver/blob/main/glossary.py">FirstProgramEver</a></li>
+      <li>
+        Python Image Converter: <a href="https://github.com/brianspragge/pctoolbelt/blob/main/image_converter.py">image_converter.py</a>
+          <ul><li>Formats: bmp, gif, heic, ido, jpg, png, tiff, webp</li></ul>
+      </li>
+      <li>Blender/3D-Print Project: <a href="https://x.com/BrianSpragge/status/1888033702120210512?s=20">3D Printed Goban</a></li>
     </ul>
   </section>
 
-  <pre>
-C program:
+<!-- REMOVE BACKGROUND IMAGE -->
+  <section>
+  <h2>Remove Image Background</h2>
+  <p>"image_invisible_background.py"</p>
 
-int main()
-{
-  printf("Hello World\n");
+  <pre><code>import os
+from PIL import Image
+from rembg import remove
 
-  return 0;
-}
-  </pre>
+def remove_background(image_path):
+    try:
+        with Image.open(image_path) as input_image:
+            output = remove(input_image)
+            base, _ = os.path.splitext(image_path)
+            output_path = base + '.png'
+            output.save(output_path)
+            print(f"Saved {output_path}")
 
-  <p>If you want to print into the terminal with C, do the following:
-  <code>printf("Hello World\n")</code></p>
-    <br>
-    <br>
+    except Exception as e:
+        print(f"Error on {image_path}: {e}")
+        return 1;
 
-  <p>To check battery status on a classic ThinkPad, run:</p>
+if __name__ == "__main__":
+    folder = "/home/monk/Repos/pctoolbelt/"
+    count = 0
 
-  <code>upower -i /org/freedesktop/UPower/devices/battery_BAT0</code>
-
-  <pre><code>  native-path:          BAT0
-    model:                45N1113
-    serial:               1234
-    vendor:               LGC
-    power supply:         yes
-    updated:              Sun 07 Feb 2026 14:22:09 (5 seconds ago)
-    has history:          yes
-    has statistics:       yes
-    battery
-      present:             yes
-      rechargeable:        yes
-      state:               discharging
-      warning-level:       none
-      energy:              23.14 Wh
-      energy-empty:        0 Wh
-      energy-full:         48.72 Wh
-      energy-full-design:  52.5 Wh
-      energy-rate:         8.421 W
-      time to empty:       2.7 hours
-      percentage:          47%
+    for image in os.listdir(folder):
+        if image.lower().endswith(('.png', '.jpg', '.jpeg')):
+            path = os.path.join(folder, image)
+            print(f"Processing {image}{count+1}...")
+            if remove_background(path) == 1:
+                break
+            count += 1
+    print(f"Done. Processed {count} images.")
   </code></pre>
 
-  <p>Use the <code>git pull --rebase</code> command when working alone.</p>
+  <p>Make sure to <code>pip install<a href="https://pypi.org/project/pillow/"> pillow</a> <a href="https://github.com/danielgatis/rembg">rembg </a>"rembg[cpu]"</code> before running.</p>
+  <p>hint: look into using <a href="https://docs.python.org/3/library/venv.html"><code>python -m venv</code></a> beforehand.</p>
+  </section>
 
-  <pre><code>user@thinkpad:~ $ git status
-  On branch main
-  Your branch is up to date with 'origin/main'.
+<!-- RULER -->
+  <section>
+    <h2>Ruler program for Vim<sup style="font-size:0.5em;"><a href="https://www.vim.org/about.php" target="_blank;">2</a></sup></h2>
+    <p>I wanted a<a href="https://github.com/brianspragge/vim/tree/main/Ruler"> ruler </a>for Vim when writing Python, so I made this.</p>
 
-  nothing to commit, working tree clean
-  </code></pre>
+    <pre><code>
+      let g:ruler_place = 79
+      let b:ruler_column = g:ruler_place
+      highlight Ruler ctermbg=yellow ctermfg=black
 
-  <pre><code># /etc/thinkpad.conf example
-  [trackpoint]
-  sensitivity = 180
-  speed = 120
-  </code></pre>
+      " remove match if exists
+      function! ClearRuler()
+        if exists('w:ruler_match') && w:ruler_match >= 1
+          call matchdelete(w:ruler_match)
+          unlet w:ruler_match
+        endif
+      endfunction
 
-  <button>Click Me</button>
-  <a href="#" class="button btn-red">Red Button Action</a>
+      " highlight ruler per buffer 
+      function! HighlightRuler()
+        call ClearRuler()
+        let l:col = getbufvar('%', 'ruler_column', g:ruler_place)
+        let l:pattern = '\%>' . l:col . 'v.\+'
+        let w:ruler_match = matchadd('Ruler', l:pattern)
+      endfunction
 
-  <br>
-  <br>
+      " toggle ruler ability
+      function! ToggleRuler()
+        if exists('w:ruler_match')
+          call ClearRuler()
+        else
+          call HighlightRuler()
+        endif
+      endfunction
 
-  <ul>
-    <div>
-      Here is some text.
+      " set ruler placement per column ability
+      function! SetRuler(column)
+        let b:ruler_column = a:column
+        call HighlightRuler()
+      endfunction
+
+      " reset ruler column to default ability
+      function! ResetRuler()
+        let b:ruler_column = g:ruler_place
+        call HighlightRuler()
+      endfunction
+
+      " help message ability
+      function! RulerHelp()
+        echohl Title
+        echo "Ruler Help:"
+        echohl None
+        echo "     Highlight text beyond the set amount: " . b:ruler_column . ""
+        echohl Statement
+        echo "  Ruler:         - Show this help menu"
+        echo "  RulerOn:       - Enable the Ruler"
+        echo "  RulerOff:      - Disable the Ruler"
+        echo "  RulerSet <n>:  - Sets the ruler placement to <n>"
+        echo "  RulerReset:    - Reset placement to default: " . g:ruler_place . ""
+        echo "  RulerToggle:   - Toggle the Ruler on/off"
+        echohl None
+      endfunction
+
+      " defined commands
+      command! Ruler call RulerHelp()
+      command! RulerOn call HighlightRuler()
+      command! RulerOff call ClearRuler()
+      command! -nargs=1 RulerSet call SetRuler(<args>) 
+      command! RulerReset call ResetRuler()
+      command! RulerToggle call ToggleRuler()
+
+      " apply to all buffers
+      autocmd BufWinEnter * call HighlightRuler()
+      autocmd BufWinLeave * call ClearRuler()
+    </code></pre>
+
+    <div style="display:flex;justify-content:center;">
+      <p><u>Result</u></p>
     </div>
-    <li>Re-enable middle-click scroll:
-      <code>echo -n 1 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drvctl</code></li>
-    <li>Check fan speed:
-      <code>sudo thinkfan -n</code></li>
-    <li>Brightness (0–852 range on many older models):
-      <code>echo 600 | sudo tee /sys/class/backlight/intel_backlight/brightness</code></li>
-  </ul>
+    <div style="display:flex;justify-content:center;">
+<img src="https://raw.githubusercontent.com/brianspragge/vim/refs/heads/main/Ruler/Ruler.png" class="box-shadow" style="border:4px outset var(--accent);width:400px;" alt="Ruler in action">
+    </div>
+  </section>
 
-  <ol>
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Milk</li>
-  </ol>
+<!-- BUTTON WHITE 
+  <button>Click Me</button>
+-->
 
-  <ol start="50">
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Milk</li>
-  </ol>
+<!-- BUTTON RED -->
+  <a href="#" class="button btn-red">Jump to Top</a>
 
-  <ul>
-    <li>Black magnesium chassis aesthetic</li>
-    <li>Red TrackPoint® navigation</li>
-    <li>Zero rounded corners</li>
-    <li>Monospace by default</li>
-    <li>Built to survive 10+ years of reboots</li>
-  </ul>
-
-  <ol>
-    <li>Power on</li>
-    <li>Wait for POST beep</li>
-    <li>Type really fast</li>
-    <li>Reboot if it crashes (it won't)</li>
-  </ol>
-
-  <ul>
-    <li>Outer item
-      <ul>
-        <li>Nested level 1</li>
-          <ul>
-            <li>Nested again</li>
-              <ul>
-                <li>Nested again</li>
-                <li>Here is another</li>
-              </ul>
-            <li>Here is another</li>
-          </ul>
-        <li>Another nested</li>
-      </ul>
-    </li>
-    <li>Back to outer</li>
-  </ul>
-
+<!-- FOOTER -->
   <footer>
-    Designed to survive 10+ years of reboots • 2026
+    2012 • 10+ years construction experience -> Arrow to Knee -> Programmer • 2024
   </footer>
 
 </body>
