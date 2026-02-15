@@ -261,6 +261,19 @@ ol ol {
   color: var(--accent-light);  /*  lighten the red to trick the eye into thinking same color as red Bullet in <ul>  */
 }
 
+/*  Not used: light/dark modes broken
+iframe {
+  background-color: transparent;
+  border:           none;
+  display:          block;
+  line-height:      0;
+  margin:           0;
+  overflow:         hidden;
+  padding:          0;
+  width:            100%;
+}
+*/
+
 footer {
   border-top:       1px solid var(--border);
   color:            var(--text-dim);
