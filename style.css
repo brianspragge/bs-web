@@ -1,4 +1,4 @@
-/*  ThinkWeb - LightMode by default  */
+/*  Author - Brian Spragge  */
 
 /*  TODO: Fix <br><br>(2 instead of 1) needed after <button></button>  */
 
@@ -20,9 +20,9 @@
 }
 
 .dark {
-  /*--accent:       UNCHANGED  */
-  /*--accent-light: UNCHANGED  */
-  /*--accent-dark:  UNCHANGED  */
+/*--accent:       UNCHANGED*/
+/*--accent-light: UNCHANGED*/
+/*--accent-dark:  UNCHANGED*/
   --bg:           #0f0f0f;
   --border:       #333333;
   --surface:      #1a1a1a;
